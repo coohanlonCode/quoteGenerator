@@ -1,9 +1,10 @@
 import React from 'react';
+import './index.css';
 
 function SubmitButton(props) {
 
   return (
-    <button onClick={props.onClickFromReq}>Click here to get a quote</button> 
+    <button className={props.cssStyle} onClick={props.onClickFromReq}>{props.displayText}</button>
   )
 }
 
