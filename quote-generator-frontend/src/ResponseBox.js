@@ -5,9 +5,10 @@ import './index.css';
 function ResponseBox(props) {
 
     return (
-        <input
+        <textarea  
+            className={props.cssStyle}
             placeholder={props.placeHolderText}
-            value={props.colinVal}
+            value={props.quoteTextValue}
         />
 
     )

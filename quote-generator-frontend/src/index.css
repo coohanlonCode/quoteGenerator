@@ -9,13 +9,14 @@ code {
     font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
 
+
 .generate-button {
 	background-color:#6C7510;
 	border-radius:28px;
 	display:inline-block;
 	cursor:pointer;
-	color:#ffffff;
-	font-family:Arial;
+	color:#ffffff;   
+	 font-family:Arial;
 	font-size:17px;
 	padding:16px 31px; 
 }
@@ -37,4 +38,26 @@ code {
 
 .reset-button:hover {
 	background-color:#83838C;
+}
+
+.primary-quote{ 
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 500px;
+    height: 200px; 
+    background-color: #C46210; 
+
+    font-size: 20px;
+    /* color: #AF002A;  */
+    color: #00308F; 
+    border-width: 3px;
+    text-align: center; 
+    word-wrap: break-word;
+
+    border-color: #6C7510;
+    border-style: solid;
+    border-radius: 2px;
+    box-shadow: -9px -3px 26px rgba(66,66,66,.54);
+    text-shadow: -32px -9px 20px rgba(108,117,16,.100);
 }
