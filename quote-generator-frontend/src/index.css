@@ -46,11 +46,11 @@ code {
     margin-right: auto;
     width: 500px;
     height: 200px; 
-    background-color: #C46210; 
+    background-color: #f28e29; 
 
     font-size: 20px;
-    /* color: #AF002A;  */
-    color: #00308F; 
+    color: #AF002A; 
+    /* color: #00308F;  */
     border-width: 3px;
     text-align: center; 
     word-wrap: break-word;
