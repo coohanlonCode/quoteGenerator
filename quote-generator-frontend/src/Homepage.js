@@ -6,6 +6,7 @@ import QuoteRequest from './QuoteRequest';
 function Homepage() {
   return (
     <div className="Homepage">
+
       <header className="Homepage-header">
 
         <div className='section-1'>
@@ -14,11 +15,13 @@ function Homepage() {
           <img src={logo} className="Homepage-logo" alt="logo" />
         </div>
 
-        <div>
-          <QuoteRequest />
+        <div className='section-1'>
+          <QuoteRequest defaultText='GET a random QUOTE' urlEndPt='random' />
+          <QuoteRequest defaultText='POST to get a specific quote' urlEndPt='specific' />
         </div>
-        
+
       </header>
+
     </div>
   );
 }
