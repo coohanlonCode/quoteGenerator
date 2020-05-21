@@ -1,4 +1,4 @@
-import React, {useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import ReactDOM from 'react-dom';
 import { render } from '@testing-library/react';
 
@@ -6,62 +6,59 @@ import ResponseBox from './ResponseBox';
 import SubmitButton from './SubmitButton';
 import './index.css';
 
-
-// import axios from 'axios';
+import axios from 'axios';
 
 function QuoteRequest() {
 
-    const [randomQuote, setRandomQuote] = useState('');
+    const defaultText = 'Click above to generate a quote';
 
-    console.log(`randomQuote state = ${randomQuote}`)
+    const [randomQuote, setRandomQuote] = useState(defaultText);
+
     return (<div >
         <div className='section-2' >
             <SubmitButton id="generateQuote" cssStyle='generate-button'
                 displayText="Generate Quote"
-                onClickFromReq={() => setRandomQuote(callRandomQuoteService(randomQuote))} />
+                onClickFromReq={() => createQuoteUsingState(setRandomQuote)} />
         </div>
 
         <div className='section-2'>
             <ResponseBox id="primaryQuoteBox" cssStyle='primary-quote'
-                quoteTextValue={randomQuote}
-                placeHolderText='' />
+                quoteTextValue={randomQuote} />
         </div>
 
         <div className='section-2'>
             <SubmitButton id="resetQuoteBox" cssStyle='reset-button'
                 displayText="Reset"
-                onClickFromReq={() => setRandomQuote('')} />
+                onClickFromReq={() => setRandomQuote(defaultText)} />
         </div>
     </div >
     )
 }
 
-function callRandomQuoteService(inputQuote) {
+async function createQuoteUsingState(stateSetter) {
+    stateSetter(await callRandomQuoteService())
+}
 
-    console.log(`Input quote = ${inputQuote}`)
-    // getMyTextFnc = (e) => {
-    //     e.preventDefault();
-    //     axios.get('https://api.openweathermap.org/data/2.5/weather?q=Zeist&appid=MYID')
-    //     .then(res => {
-    //       console.log(res.data); 
-    //     });
-    // }
+async function callRandomQuoteService() {
 
-    let myResponse = // webservice call will go her
-        { quoteText: "", }
-
-    let myQuote = myResponse.quoteText;
-
-    myQuote = "Littering and, litterning and, littering and...";
-    myQuote = "You ARE freaking out. Man.";
-
-    if (inputQuote) {
-        myQuote = "I don't want a large Farva. I want a goddam liter of cola. here is a ton of other text that goes way far";
-    }
-
-
+    var myResponseObject = await callToJava();
+    let myQuote = myResponseObject.quoteText;
 
     return myQuote;
+}
+
+async function callToJava(request, response) {
+
+    const restResponseObjectUrl = 'http://localhost:8080/random';
+
+    return await axios.get(restResponseObjectUrl)
+        .then(
+            (response) => {
+                console.log(`data contents = ${JSON.stringify(response.data)}`)
+                return response.data
+            }, (error) => {
+                console.log(error);
+            });
 }
 
 export default QuoteRequest

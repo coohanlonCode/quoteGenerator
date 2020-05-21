@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import './index.css';
 
-function ResponseBox(props) {
+ function ResponseBox(props) {
 
     return (
         <textarea  
@@ -10,7 +10,6 @@ function ResponseBox(props) {
             placeholder={props.placeHolderText}
             value={props.quoteTextValue}
         />
-
     )
 }
 
