@@ -14,23 +14,17 @@ function QuoteRequest(props) {
 
     const [randomQuote, setRandomQuote] = useState(defaultText);
 
-    return (<div >
-        <div className='section-2' >
-            <SubmitButton id="generateQuote" cssStyle='generate-button'
-                displayText="Generate Quote"
-                onClickFromReq={() => createQuoteUsingState(setRandomQuote, props.urlEndPt)} />
-        </div>
+    return (<div className={'input-controls'}>
+        <SubmitButton id="generateQuote" cssStyle='generate-button'
+            displayText="Generate Quote"
+            onClickFromReq={() => createQuoteUsingState(setRandomQuote, props.urlEndPt)} />
 
-        <div className='section-2'>
-            <ResponseBox id="primaryQuoteBox" cssStyle='primary-quote'
-                quoteTextValue={randomQuote} />
-        </div>
+        <ResponseBox id="primaryQuoteBox" cssStyle='primary-quote'
+            quoteTextValue={randomQuote} />
 
-        <div className='section-2'>
-            <SubmitButton id="resetQuoteBox" cssStyle='reset-button'
-                displayText="Reset"
-                onClickFromReq={() => setRandomQuote(defaultText)} />
-        </div>
+        <SubmitButton id="resetQuoteBox" cssStyle='reset-button'
+            displayText="Reset"
+            onClickFromReq={() => setRandomQuote(defaultText)} />
     </div >
     )
 }
